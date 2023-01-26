@@ -2,8 +2,11 @@ $('#title').click(() => {
     $('#list').toggleClass('open');
 });
 
-$('.link').each(function() {
-    $(this).click(function() {
-        $('body').fadeOut(1000);
+$('.directLink').each(function() {
+    $(this).click(function(event) {
+        event.preventDefault();
+        $('body').fadeOut(2000, function() {
+            window.location.href = $(event.target).attr('href');
+        });
     });
 });
